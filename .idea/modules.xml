@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MatrixProducerConsumer/MatrixProducerConsumer.iml" filepath="$PROJECT_DIR$/MatrixProducerConsumer/MatrixProducerConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-multi-threading.iml" filepath="$PROJECT_DIR$/java-multi-threading.iml" />
+    </modules>
+  </component>
+</project>
