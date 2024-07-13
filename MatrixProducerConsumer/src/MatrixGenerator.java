@@ -22,7 +22,7 @@ public class MatrixGenerator {
     private static void createMatrices(FileWriter writer) throws IOException {
         for (int i = 0; i < NUMBER_OF_MATRIX_PAIRS; i++) {
             int[][] matrix = createMatrix();
-            saveMatrix(writer, matrix);
+            FileUtils.saveMatrix(writer, matrix);
         }
     }
 
@@ -35,19 +35,5 @@ public class MatrixGenerator {
 
     private static int[] createRow() {
         return random.ints(size, 0, 100).toArray();
-    }
-
-    private static void saveMatrix(FileWriter writer, int[][] matrix) throws IOException {
-            for (int[] row: matrix) {
-                String rowString = IntStream.of(row)
-                        .mapToObj(Integer::toString)
-                        .reduce((a, b) -> a+","+b)
-                        .orElse("");
-
-                writer.write(rowString);
-                writer.write('\n');
-            }
-
-            writer.write('\n');
     }
 }
