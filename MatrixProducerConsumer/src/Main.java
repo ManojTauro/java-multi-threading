@@ -126,7 +126,7 @@ public class Main {
         private final Queue<MatrixPair> queue = new LinkedList<>();
         private boolean isEmpty = true;
         private boolean isTerminated = false;
-        private static final int CAPACITY = 10;
+        private static final int CAPACITY = 5;
 
         public synchronized void add(MatrixPair pair) {
             while (queue.size() == CAPACITY) {
@@ -142,6 +142,7 @@ public class Main {
         }
 
         public synchronized MatrixPair remove() {
+            MatrixPair pair = null;
             while (isEmpty && !isTerminated) {
                 try {
                     wait();
@@ -153,9 +154,9 @@ public class Main {
 
             System.out.println("Queue size "+queue.size());
 
-            MatrixPair pair = queue.remove();
+            pair = queue.remove();
 
-            if (queue.size() < CAPACITY) notifyAll();
+            if (queue.size() == CAPACITY - 1) notifyAll();
 
             return pair;
         }
